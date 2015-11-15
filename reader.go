@@ -56,5 +56,5 @@ func StripLies(file string) string {
 
 	}
 
-	return strings.Join(output, string("\n"))
+	return strings.Join(output, "\n")
 }
