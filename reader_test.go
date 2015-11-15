@@ -25,3 +25,20 @@ func TestStripLies(t *testing.T) {
 		t.FailNow()
 	}
 }
+
+func TestIsTextFile(t *testing.T) {
+	corpus := "this line should be included\n" +
+		"this line should be excluded !git-lie\n" +
+		"this line should also be included\n" +
+		"the following content should be excluded" +
+		"<git-lie>hello world" +
+		"this won't appear" +
+		"</git-lie>" +
+		"but this one will"
+
+	if !IsTextFile(corpus) {
+		t.FailNow()
+	}
+
+	//TODO add a case where IsTextFile returns false for binary data
+}
